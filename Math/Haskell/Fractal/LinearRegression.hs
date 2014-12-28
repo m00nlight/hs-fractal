@@ -6,14 +6,19 @@ import Math.Haskell.Fractal.Utils
 import Data.List
 import Prelude.Unicode
 
-data Result = Result { val ∷ Double     -- the estimate value
-                     , moe ∷ Double     -- margin of error of 95% confident
+data Result = Result { val ∷ Double     -- ^ the estimate value
+                     , moe ∷ Double     -- ^ margin of error of 95% confident
                      }
 
 instance Show Result where
     show (Result {val = v, moe = m}) = (show v) ++ " ± " ++ (show m)
 
--- | LinearRegression of the sample (x₁, x₂, ..., xₙ) and (y₁, y₂, ... yₙ)
+{-|
+  The 'linearRegression' function calculate the linear regression coefficient
+  of the sample (x₁, x₂, ..., xₙ) and (y₁, y₂, ..., yₙ).
+  The linear regression result is y = β₀ + β₁ * x. The function will return
+  the coefficient of β₀ and β₁ with 95% confidence intervals.
+-}
 linearRegression ∷ [Double] → [Double] → (Result, Result)
 linearRegression xs ys = (Result {val = β₀, moe = 1.96 ⋅ σ₀},
                           Result {val = β₁, moe = 1.96 ⋅ σ₁} )
