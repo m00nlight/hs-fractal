@@ -1,6 +1,6 @@
 # Haskell fractal modeling package
 
-This is a haskell library for (fractal)[http://en.wikipedia.org/wiki/fractal]
+This is a haskell library for [fractal](http://en.wikipedia.org/wiki/fractal)
 modeling. 
 
 ## Install
