@@ -32,8 +32,8 @@ hurstRS xs = if s ≡ 0.0 then 1.0 else r / s
   The value  can be late used to calculate the fractal dimension of
   the time series data.
 -}
-hurstExponent ∷ [Double] → ([(Double, Double)], Result)
-hurstExponent vs = (tmp, snd res)
+hurstExponent ∷ [Double] → Result
+hurstExponent vs = snd res
     where
       n = length vs
       chunkSizes = nestWhile (>4) (\ x → x `div` 2) n
