@@ -1,6 +1,27 @@
 {-# LANGUAGE UnicodeSyntax #-}
 
-module Math.Haskell.Fractal.HurstExponent where
+{-|
+  Module        : Math.Haskell.Fractal.HurstExponent
+  Description   : Calculate Hurst Exponent of timer series data
+  Copyright     : (c) m00nlight, 2014-2015
+  License       : BSD3
+  Stability     : experimental
+
+This exponent calculate the Hurst Exponent of time series data using
+the <http://en.wikipedia.org/wiki/Rescaled_range Rescale_Range> methods.
+
+Briefly speaking, the function will calculate the R/S score of the time
+series data with different chunck size, and using linear regression to
+calculate the slope in log-log coordinates of the R/S average value and
+chunk size. So the total input time series data should be of 2^n where
+n is an integer.
+
+More details of how to calculate the Hurst Exponent, please see the
+<http://en.wikipedia.org/wiki/Hurst_exponent wikipedia> page .
+ -}
+
+module Math.Haskell.Fractal.HurstExponent
+    (hurstExponent) where
 
 import Math.Haskell.Fractal.LinearRegression
 import Math.Haskell.Fractal.Utils
